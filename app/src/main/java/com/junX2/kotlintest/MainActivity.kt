@@ -17,6 +17,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import android.content.pm.ApplicationInfo
+import android.graphics.Color
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.google.android.gms.ads.reward.RewardItem
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         btnDice.isClickable = false
         btnWalk.isClickable=false
+
         if (!Settings.canDrawOverlays(this@MainActivity)) {
             getOverlayPermission()
         }
@@ -120,6 +122,8 @@ class MainActivity : AppCompatActivity() {
     fun onAdLoad(){
         btnDice.isClickable = true
         btnWalk.isClickable=true
+        btnDice.setBackgroundColor(Color.GREEN)
+        btnWalk.setBackgroundColor(Color.GREEN)
     }
     private fun showAd(){
         val adCallback = object : RewardedAdCallback() {
